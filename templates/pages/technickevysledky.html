@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <title>
+    Hodnocení Učitelů VASS → Výsledky
+  </title>
+  <!-- FA Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"
+    integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css"
+    integrity="sha512-pZlKGs7nEqF4zoG0egeK167l6yovsuL8ap30d07kA5AJUq+WysFlQ02DLXAmN3n0+H3JVz5ni8SJZnrOaYXWBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS Files -->
+  <link href="/css/styl.css" rel="stylesheet" />
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <!-- Echarts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"
+    integrity="sha512-k37wQcV4v2h6jgYf5IUz1MoSKPpDs630XGSmCaCCOXxy2awgAWKHGZWr9nMyGgk3IOxA1NxdkN8r1JHgkUtMoQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setCookieDomain", "*.hodnocenivass.lol"]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "//dataminer.hodnocenivass.lol/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</head>
+
+<body class="index-page">
+  <!-- Navbar -->
+  <nav class="fixed-top d-flex justify-content-center navbar-transparent " color-on-scroll="100">
+    <div class="collapse navbar-collapse justify-content-center" id="navigation">
+    </div>
+    <ul class="navigace">
+      <li class="nav-item p-0">
+        <a href="/">
+          <button class="btn btn-round"><i class="fa-solid fa-compass"></i> Úvod</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/vysledky">
+          <button class="btn btn-round"><i class="fa-solid fa-file-lines"></i> Výsledky</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/informace">
+          <button class="btn btn-round"><i class="fa-solid fa-user"></i> Informace</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/zpravy">
+          <button class="btn btn-round"><i class="fa-solid fa-message"></i> Zprávy</button>
+        </a>
+      </li>
+    </ul>
+    </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header header-filter">
+      <div class="squares square1"></div>
+      <div class="squares square2"></div>
+      <div class="squares square3"></div>
+      <div class="squares square4"></div>
+      <div class="squares square5"></div>
+      <div class="squares square6"></div>
+      <div class="squares square7"></div>
+      <div class="container">
+        <div class="navoddelovac"></div>
+        <div class="d-flex justify-content-center" style="max-width:1100px;">
+          <div class="platno" style="background-color:hsla(223, 38%, 33%, 0.75);">
+            <h2 class="d-flex justify-content-center text-white">Technické výsledky</h2>
+            <div>
+              <h3>Zajímavá fakta</h3>
+              <br>
+              <ul>
+                <li>Celkem prošlo 117,72tis. požadavků a 9.63 GB dat.</li>
+                <li>Stránky celkem navštívilo 2.16tis. uživatelů, nejvíce za den jich bylo 387.</li>
+                <li>Celkem přišlo 13 neúspěšných ;) DDOS útoků.</li>
+                <li>Pokusilo se nás odhalit 6 amatérů přes grabify (neúspěšně).</li>
+                <li>18 lidí bylo <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Rickrollnuto</a> při pokusu o
+                  hledání zranitelnosti.</li>
+                <li>96 lidí si stáhlo náš zdrojový kód.</li>
+              </ul>
+              <br>
+              <h3>Z jakých oborů lidé hlasovali?</h3>
+              <p>Počet lidí co hlasoval byl skvělý ale je vidět že se nám nepodařilo dostatečně oslovit jiné obory než
+                IT.</p>
+              <div id="kdohlasoval" style="width:75vw;height:70vh;max-width:1000px;"
+                class="d-flex justify-content-center"></div>
+              <br>
+              <h3>Zařízení</h3>
+              <p>Vzhledem k tomu že většina lidí využívala pro hlasování mobilní telefony tak jsme měli naše stránky
+                lépe připravit pro tuto platformu.</p>
+              <div id="zarizeni" style="width:75vw;height:70vh;max-width:1000px;" class="d-flex justify-content-center">
+              </div>
+              <br>
+              <h3>Značky telefonů</h3>
+              <p>Většina lidí používá Apple, co dodat?</p>
+              <div id="znacky" style="width:75vw;height:70vh;max-width:1000px;" class="d-flex justify-content-center">
+              </div>
+              <br>
+              <h3>Prohlížeče</h3>
+              <p>Tady asi nikoho nic nepřekvapilo.</p>
+              <div id="prohlizece" style="width:75vw;height:70vh;max-width:1000px;"
+                class="d-flex justify-content-center">
+              </div>
+              <br>
+              <h3>Operační systémy</h3>
+              <p>Potěšilo náš že většina lidí už nespoléhá na Windows ale volí spolehlivější a přátelštější operační
+                systémy založené na Linuxu nebo jiném UNIXu.</p>
+              <div id="operacnisystemy" style="width:75vw;height:70vh;max-width:1000px;"
+                class="d-flex justify-content-center"></div>
+              <h3>Verze HTTP</h3>
+              <p>Počet lidí co používají HTTP 2 je pořád vysoký, důvod je podle nás nepochopitelný zákaz HTTP 3 na
+                školní síti.</p>
+              <div id="verzehttp" style="width:75vw;height:70vh;max-width:1000px;"
+                class="d-flex justify-content-center"></div>
+              <br>
+              <script>
+                var kdohlasoval = echarts.init(document.getElementById('kdohlasoval'), null, { renderer: 'svg' });
+                var zarizeni = echarts.init(document.getElementById('zarizeni'), null, { renderer: 'svg' });
+                var znacky = echarts.init(document.getElementById('znacky'), null, { renderer: 'svg' });
+                var prohlizece = echarts.init(document.getElementById('prohlizece'), null, { renderer: 'svg' });
+                var operacnisystemy = echarts.init(document.getElementById('operacnisystemy'), null, { renderer: 'svg' });
+                var verzehttp = echarts.init(document.getElementById('verzehttp'), null, { renderer: 'svg' });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="navoddelovac"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var novadata = {
+      title: {
+        text: 'Obory',
+        left: 'center',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      tooltip: {
+        trigger: 'item',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      series: [
+        {
+          name: 'Obor',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 109, name: 'Informační Technologie' },
+            { value: 71, name: 'Ekonomika a podnikání' },
+            { value: 64, name: 'Veterinářství' },
+            { value: 45, name: 'Hotelnictví' },
+            { value: 31, name: 'Praktická sestra' },
+            { value: 24, name: 'Fyzioterapie zvířat' },
+            { value: 21, name: 'Kuchař - číšník' },
+            { value: 19, name: 'Zahradník' },
+            { value: 16, name: 'Cestovní ruch' },
+            { value: 12, name: 'Diplomovaná všeobecná sestra' },
+            { value: 9, name: 'Finančnictví a bankovnictví' },
+            { value: 5, name: 'Údržba' },
+            { value: 4, name: 'Učitel' },
+            { value: 3, name: 'Vedení' },
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+          label: {
+            textStyle: {
+              fontFamily: `Hywenhei`,
+              color: `#fff`
+            }
+          }
+        }
+      ]
+    };
+    kdohlasoval.setOption(novadata);
+    delete novadata;
+
+    var novadata = {
+      title: {
+        text: 'Zařízení',
+        left: 'center',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      tooltip: {
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        },
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      series: [
+        {
+          name: 'Zařízení',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 1349, name: 'Smartphone' },
+            { value: 204, name: 'Tablet' },
+            { value: 769, name: 'Počítač' },
+            { value: 3, name: 'Smart TV' },
+            { value: 1, name: 'Prohlížeč v autě' }
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+          label: {
+            textStyle: {
+              fontFamily: `Hywenhei`,
+              color: `#fff`
+            }
+          }
+        }
+      ]
+    };
+    zarizeni.setOption(novadata);
+    delete novadata;
+
+    var novadata = {
+      title: {
+        text: 'Značka zařízení',
+        left: 'center',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      tooltip: {
+        trigger: 'item',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      series: [
+        {
+          name: 'Značka zařízení',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 838, name: 'Apple' },
+            { value: 277, name: 'Samsung' },
+            { value: 232, name: 'Xiaomi' },
+            { value: 96, name: 'POCO' },
+            { value: 40, name: 'Huawei' },
+            { value: 19, name: 'Realme' },
+            { value: 16, name: 'UMIDIGI' },
+            { value: 13, name: 'Nothing Phone' },
+            { value: 11, name: 'Motorola' },
+            { value: 8, name: 'Google' },
+            { value: 7, name: 'Vivo' },
+            { value: 6, name: 'OnePlus' },
+            { value: 3, name: 'Doogee' },
+            { value: 2, name: 'Tecno Mobile' },
+            { value: 1, name: 'Blackview' },
+            { value: 1, name: 'Nokia' },
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+          label: {
+            textStyle: {
+              fontFamily: `Hywenhei`,
+              color: `#fff`
+            }
+          }
+        }
+      ]
+    };
+
+    znacky.setOption(novadata);
+    delete novadata;
+
+    var novadata = {
+      title: {
+        text: 'Prohlížeče',
+        left: 'center',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      tooltip: {
+        trigger: 'item',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      series: [
+        {
+          name: 'Prohlížeče',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 679, name: 'Safari (mobile)' },
+            { value: 605, name: 'Chrome (mobile)' },
+            { value: 474, name: 'Chrome' },
+            { value: 143, name: 'Brave' },
+            { value: 108, name: 'Samsung browser' },
+            { value: 99, name: 'Microsoft edge' },
+            { value: 53, name: 'Safari' },
+            { value: 41, name: 'Opera GX' },
+            { value: 29, name: 'Facebook' },
+            { value: 23, name: 'Firefox' },
+            { value: 14, name: 'Instagram App' },
+            { value: 13, name: 'Opera (mobile)' },
+            { value: 11, name: 'Opera' },
+            { value: 9, name: 'Firefox (mobile)' },
+            { value: 1, name: 'Seznam browser' },
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+          label: {
+            textStyle: {
+              fontFamily: `Hywenhei`,
+              color: `#fff`
+            }
+          }
+        }
+      ]
+    };
+    prohlizece.setOption(novadata);
+    delete novadata;
+
+    var novadata = {
+      title: {
+        text: 'Operační systém',
+        left: 'center',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      tooltip: {
+        trigger: 'item',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      series: [
+        {
+          name: 'Operační systém',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 788, name: 'Android' },
+            { value: 765, name: 'iOS' },
+            { value: 533, name: 'Windows' },
+            { value: 171, name: 'GNU/Linux' },
+            { value: 73, name: 'Mac OS' },
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+          label: {
+            textStyle: {
+              fontFamily: `Hywenhei`,
+              color: `#fff`
+            }
+          }
+        }
+      ]
+    };
+    operacnisystemy.setOption(novadata);
+    delete novadata;
+
+    var novadata = {
+      title: {
+        text: 'HTTP verze',
+        left: 'center',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      tooltip: {
+        trigger: 'item',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#fff`
+        }
+      },
+      series: [
+        {
+          name: 'HTTP verze',
+          type: 'pie',
+          radius: '50%',
+          data: [
+            { value: 57680, name: 'HTTP/3' },
+            { value: 57710, name: 'HTTP/2' },
+            { value: 3750, name: 'HTTP/1.1' },
+          ],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+          label: {
+            textStyle: {
+              fontFamily: `Hywenhei`,
+              color: `#fff`
+            }
+          }
+        }
+      ]
+    };
+
+    verzehttp.setOption(novadata);
+    delete novadata;
+  </script>
+</body>
+
+</html>

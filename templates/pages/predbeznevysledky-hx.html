@@ -1,0 +1,54 @@
+<script type="text/javascript">
+  var novadata = {
+    tooltip: {
+      textStyle: {
+        fontFamily: 'Hywenhei',
+        color: '#000'
+      }
+    },
+    color: '#e14eca',
+    grid: {
+      containLabel: true
+    },
+    xAxis: [
+      {
+        type: 'value',
+        axisLabel: {
+          textStyle: {
+            fontFamily: 'Hywenhei',
+            color: '#fff'
+          }
+        }
+      }
+    ],
+    yAxis: [
+      {
+        type: 'category',
+        axisLabel: {
+          show: false
+        },
+        data: {{ ucitelejson }}
+      }
+    ],
+    series: [
+      {
+        name: 'Pozitivní Hlasy',
+        type: 'bar',
+        barWidth: '70%',
+        data: {{ pocethlasujson }},
+        label: {
+          show: true,
+          position: 'inside',
+          color: '#fff',
+          textStyle: {
+            fontFamily: 'Hywenhei',
+            color: '#fff'
+          },
+          formatter: '{b}'
+        }
+      }
+    ]
+  };
+  predbeznevysledky.setOption(novadata);
+  delete novadata;
+</script>

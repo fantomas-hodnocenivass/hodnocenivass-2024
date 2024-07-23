@@ -1,0 +1,23 @@
+<tr>
+  <td>
+    <div class="d-flex justify-content-center" style="max-width:50vw">
+      <div class="platno" style="background-color:hsla(223, 38%, 33%, 0.75);">
+        <p style="float:left;">Adresát:</p>
+        <b style="float:right;">{{adresat}}</b>
+        <div class="platno" style="max-height:500px;overflow-y:hidden;background-color:#e14eca;margin-top:35px;">
+          <div style="text-align:start;margin:10px;">
+            {{zprava}}
+          </div>
+        </div>
+        {% if jeodpoved == true -%}
+        <div class="platno"
+          style="max-height:500px;overflow-y:hidden;background-color:hsla(348, 91%, 59%, 0.75);margin-top:35px;">
+          <div style="text-align:start;margin:10px;">
+            <b>Odpověď Fantomase:</b> {{odpoved}}
+          </div>
+        </div>
+        {% endif -%}
+      </div>
+    </div>
+  </td>
+</tr>

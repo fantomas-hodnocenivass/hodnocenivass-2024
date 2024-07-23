@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <title>
+    Hodnocení Učitelů VASS → Zprávy → Poslat
+  </title>
+  <!-- FA Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"
+    integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css"
+    integrity="sha512-pZlKGs7nEqF4zoG0egeK167l6yovsuL8ap30d07kA5AJUq+WysFlQ02DLXAmN3n0+H3JVz5ni8SJZnrOaYXWBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS Files -->
+  <link href="/css/styl.css" rel="stylesheet" />
+  <!-- HTMX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js"
+    integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <!-- Vyberucitelu.js -->
+  <script src="/js/vyberucitelu.js" defer></script>
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setCookieDomain", "*.hodnocenivass.lol"]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "//dataminer.hodnocenivass.lol/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</head>
+
+<body class="index-page">
+  <!-- Navbar -->
+  <nav class="fixed-top d-flex justify-content-center navbar-transparent " color-on-scroll="100">
+    <div class="collapse navbar-collapse justify-content-center" id="navigation">
+    </div>
+    <ul class="navigace">
+      <li class="nav-item p-0">
+        <a href="/">
+          <button class="btn btn-round"><i class="fa-solid fa-compass"></i> Úvod</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/vysledky">
+          <button class="btn btn-round"><i class="fa-solid fa-file-lines"></i> Výsledky</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/informace">
+          <button class="btn btn-round"><i class="fa-solid fa-user"></i> Informace</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/zpravy">
+          <button class="btn btn-round"><i class="fa-solid fa-message"></i> Zprávy</button>
+        </a>
+      </li>
+    </ul>
+    </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header header-filter">
+      <div class="squares square1"></div>
+      <div class="squares square2"></div>
+      <div class="squares square3"></div>
+      <div class="squares square4"></div>
+      <div class="squares square5"></div>
+      <div class="squares square6"></div>
+      <div class="squares square7"></div>
+      <div class="container">
+        <div class="navoddelovac"></div>
+        <form action="/zpravy/zapsat" method="post">
+          <div class="d-flex justify-content-center">
+            <div class="platno" style="background-color: #344675;">
+              <label for="obor" class="d-flex justify-content-center">
+                <h4 style="color:rgb(255, 255, 255);">Poslat Veřejnou Zprávu</h4>
+              </label>
+              <input type="text" class="form-control item-input text-white" style="cursor: pointer;"
+                id="teacher_name_display" readonly required>
+              <br>
+              <textarea id="zprava" name="zprava" rows="20" cols="60" maxlength="2000" placeholder="Vaše zpráva..." style="resize: none;"
+                required></textarea>
+              <input type="hidden" name="teacher_name" id="teacher_name" />
+              <br>
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-primary btn-round" type="submit"">Odeslat</button>
+            </div>
+                </div>
+              </div>
+          </form>
+            <div class=" navoddelovac">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- Dialog Hledani Ucitele -->
+    <div class="modal fade" id="itemPopup" tabindex="-1" role="dialog"
+      style="background-color: rgba(0, 0, 0,0.5);">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #ba54f5;border-radius: 1rem;height: 500px;">
+          <div class="modal-header d-flex justify-content-center">
+            <h3 class="modal-title text-white" id="itemPopupLabel">Hledat Učitele</h3>
+            <br>
+            <input class="form-control text-white" type="search" name="ucitel" hx-post="/hledatucitele"
+              hx-trigger="load, input changed delay:250ms, search" hx-target="#itemList" style="max-width:80%;">
+          </div>
+          <div class="modal-body d-flex justify-content-center">
+            <ul id="itemList" class="list-unstyled">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

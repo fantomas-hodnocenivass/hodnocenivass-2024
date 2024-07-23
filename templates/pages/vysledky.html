@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <title>
+    Hodnocení Učitelů VASS → Výsledky
+  </title>
+  <!-- FA Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"
+    integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css"
+    integrity="sha512-pZlKGs7nEqF4zoG0egeK167l6yovsuL8ap30d07kA5AJUq+WysFlQ02DLXAmN3n0+H3JVz5ni8SJZnrOaYXWBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS Files -->
+  <link href="/css/styl.css" rel="stylesheet" />
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <!-- Echarts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"
+    integrity="sha512-k37wQcV4v2h6jgYf5IUz1MoSKPpDs630XGSmCaCCOXxy2awgAWKHGZWr9nMyGgk3IOxA1NxdkN8r1JHgkUtMoQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setCookieDomain", "*.hodnocenivass.lol"]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "//dataminer.hodnocenivass.lol/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</head>
+
+<body class="index-page">
+  <!-- Navbar -->
+  <nav class="fixed-top d-flex justify-content-center navbar-transparent " color-on-scroll="100">
+    <div class="collapse navbar-collapse justify-content-center" id="navigation">
+    </div>
+    <ul class="navigace">
+      <li class="nav-item p-0">
+        <a href="/">
+          <button class="btn btn-round"><i class="fa-solid fa-compass"></i> Úvod</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/vysledky">
+          <button class="btn btn-round"><i class="fa-solid fa-file-lines"></i> Výsledky</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/informace">
+          <button class="btn btn-round"><i class="fa-solid fa-user"></i> Informace</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/zpravy">
+          <button class="btn btn-round"><i class="fa-solid fa-message"></i> Zprávy</button>
+        </a>
+      </li>
+    </ul>
+    </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header header-filter">
+      <div class="squares square1"></div>
+      <div class="squares square2"></div>
+      <div class="squares square3"></div>
+      <div class="squares square4"></div>
+      <div class="squares square5"></div>
+      <div class="squares square6"></div>
+      <div class="squares square7"></div>
+      <div class="container">
+        <div class="navoddelovac"></div>
+        <div class="d-flex justify-content-center" style="max-width:1100px;">
+          <div class="platno" style="background-color:hsla(223, 38%, 33%, 0.75);">
+            <h2 class="d-flex justify-content-center text-white">Výsledky</h2>
+            <p>Děkujeme všem hlasujícím!
+              <br>
+              Po sečtení hlasování jsou následující:
+              <br>
+              <br>
+              <ol>
+              <li>317b4f2b-eb50-4129-8e63-85792005e3f1</li>
+              <li>Jiří Hlaváček</li>
+              <li>David Marek</li>
+              </ol>
+              <br>
+              Gratulujeme vítězům!
+              Výherce bohužel neodsouhlasil GDPR tak nebude zveřejněn ale odměna mu bude tajně doručena.
+              <br>
+              <br>
+              Níže se můžete podívat na výsledky nebo na <a href="/technickevysledky" style="color: red;">technické
+                výsledky</a>.
+            </p>
+            <br>
+            <div>
+              <h3>Výsledková listina</h3>
+              <div id="vysledkovalistina" style="width:75vw;height:180vh;max-width:1000px;"
+                class="d-flex justify-content-center"></div>
+              <br>
+              <p>Data v této sekci jsou plně ošetřena proti opakovanému hlasování jedné osoby a botům</p>
+              <h3>Pozitivní hlasy</h3>
+              <div id="pozitivnihlasy" style="width:75vw;height:180vh;max-width:1000px;"
+                class="d-flex justify-content-center"></div>
+              <p>⚠️
+                Prezentovaná data nejsou přesná, neboť v nich nebyly zohledněny negativní hlasy a nebyla implementována
+                ochrana proti opakovanému hlasování ze strany jedné osoby.</p>
+              <br>
+              <h3>Negativní hlasy</h3>
+              <div id="negativníhlasy" style="width:75vw;height:180vh;max-width:1000px;"
+                class="d-flex justify-content-center"></div>
+              <p>⚠️
+                Prezentovaná data nejsou přesná, neboť v nich nebyly zohledněny negativní hlasy a nebyla implementována
+                ochrana proti opakovanému hlasování ze strany jedné osoby.</p>
+              <script>
+                var vysledkovalistina = echarts.init(document.getElementById('vysledkovalistina'), null, { renderer: 'svg' });
+                var pozitivnihlasy = echarts.init(document.getElementById('pozitivnihlasy'), null, { renderer: 'svg' });
+                var negativníhlasy = echarts.init(document.getElementById('negativníhlasy'), null, { renderer: 'svg' });
+                var kdohlasoval = echarts.init(document.getElementById('kdohlasoval'), null, { renderer: 'svg' });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="navoddelovac"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var novadata = {
+      tooltip: {
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      color: `#e14eca`,
+      grid: {
+        containLabel: !0
+      },
+      xAxis: [{
+        type: `value`,
+        axisLabel: {
+          textStyle: {
+            fontFamily: `Hywenhei`,
+            color: `#fff`
+          }
+        }
+      }],
+      yAxis: [{
+        type: `category`,
+        axisLabel: {
+          show: !1
+        },
+        data: [`1b374f74-2024-43a3-ad22-fd3bd2a100ac`, `73c2d51e-5a02-450e-9e2b-e5dbc577aa35`, `2a2a590a-cdb5-4e02-8198-6fa16c96b8b1`, `03acee2e-3331-484e-a327-ff683b2608ad`, `fb2dad72-c219-4095-84b0-94c8f75f0d78`, `ac847758-48a7-4f65-8088-7f5dd05554da`, `ff014005-93ec-451b-af6c-1e5d63748301`, `23f90643-f39c-49bc-a716-e85fef8670fd`, `4775907d-f633-4b20-a723-11ceb8dbdd66`, `f5897e5a-7f24-463d-852c-a7bcd5ac8811`, `108cefaa-a354-4144-957a-a7812aeca218`, `f1ddaf23-b37c-4e73-9eae-c5b79b2ed8a6`, `a226b974-beb2-43ff-a59a-0522a5173ee0`, `7b5216ff-19a1-41e4-8130-0fd72840d176`, `87c50c3b-786b-4b19-8b7c-b788611033e8`, `a91837e2-9b2f-4796-b75f-1262758992e8`, `fd8f800f-43b5-44a8-b373-2125ddd0e1eb`, `ea9ffeb2-ed44-464b-8de1-12dabb5a828d`, `cfb03bea-98c8-4a06-a0f7-0491da53caa9`, `8625fb7e-62c9-46d9-9889-9dc5df5af7ea`, `4fdf9de2-16e1-4234-9e5b-b7d348d93c25`, `3963b0ae-bca7-4853-b5d1-856f766c6316`, `58ab7298-0a91-4754-8e05-a8c227a0404c`, `03168f48-ccff-4d20-8c4c-ff9a2fb81405`, `8c0a4d9c-76a4-401c-a18f-d7cfc3ecf5fa`, `48e234b9-8a7d-4ddf-bb3b-f2afac000ba0`, `a5a49950-34d3-4533-bc5a-9ae504bc6f50`, `f802f802-3f63-4d27-ac8f-65cd5745549d`, `c0636720-c611-43bb-b6ca-0937dff9b77f`, `ee929045-d1d8-4030-a21c-f72f4a8c8ead`, `09ce58a7-c341-4618-b77a-79e97412dd1d`, `df0c75c5-fa8c-4d18-9cd1-227d674ab3fb`, `19207ee2-5761-4800-a434-b668ceaab159`, `b06114e0-8e14-4658-82d1-9edfcd68e729`, `a6287eb9-e48e-41ac-b974-4d6aa8991e26`, `b5c9bad4-58a4-4f4b-8f87-e5b912a79033`, `f1880345-1a33-4948-bf28-31d7c9e55755`, `7e3ef0ca-1abd-49ff-a52e-bd9042926a68`, `b3688433-c7aa-4fd8-9ebf-2a7c34923bf2`, `662b35ff-cc74-4640-ba56-0848e3e798fa`, `db9b335e-a890-4fce-8a23-d6d1b12edec4`, `35c1693d-8c09-4c80-96c9-acf015ade18a`, `7ff84320-5b9a-4c23-a151-8b3048e57752`, `cc65cab4-7a3e-4edc-a845-a826bee149f2`, `ff3386c4-de9a-4dfa-97c8-d28eebf12638`, `f0256a7b-fed8-4d49-8013-facc68271f7a`, `8db9ff8d-cc24-4c4d-949e-3fee93221de9`, `8e4c1ed0-8fe6-48e6-a29a-03187672b792`, `a659089c-8747-4dc6-8f69-e44ea100ecab`, `044a2eb4-3ade-4723-8505-0dd04217bbeb`, `6c85bedc-866a-46bd-9606-2f58e171e4e9`, `540b03f3-c6b9-4f1f-abbc-1b95bc297b43`, `b4152461-6a45-4540-be74-a85411b2d5bb`, `625237a4-13d2-4039-8b8b-d5203f756ab1`, `ddf79dc6-f234-4701-9235-4bd905cef449`, `b56f6769-bd79-44a5-aa29-e03d94c1fb3c`, `85d8b348-8df3-49e0-a77d-b25a47e058c1`, `ad4db4f5-833f-4e88-8869-d0b70c49d7cc`, `d7b3f7b9-c680-425d-ad9a-0794cb4645d9`, `6b2aaa53-46a3-4f68-a117-3d4cffcda95d`, `1af76396-5b7c-4c23-ba30-8b7ad4546ec3`, `28631ca4-1ded-498a-9a1d-cbbe0e9e35bf`, `517c78bf-ebb0-4cff-99a7-cd1c0de0f1f8`, `bf0bc151-975c-424c-b93d-33e4b39dbf0c`, `31e0c7c2-cebd-4a4f-8c7e-c54aa0fe26d8`, `f88a7040-4fbf-43b4-8908-50486a4735e5`, `1e9d9c0f-3de0-45f0-a927-548010e46dff`, `8229b143-b507-4620-907b-4d6be8245fcf`, `9d8d4f5f-02c4-421f-b56f-8bde92061c24`, `David Marek`, `Jiří Hlaváček`, `317b4f2b-eb50-4129-8e63-85792005e3f1`]
+      }],
+      series: [{
+        name: `Pozitivní Hlasy`,
+        type: `bar`,
+        barWidth: `70%`,
+        data: [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 6, 7, 7, 8, 11, 11, 12, 13, 13, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 21, 21, 21, 23, 23, 24, 25, 26, 28, 29, 32, 36, 39, 39, 40, 44, 49, 51, 55, 59, 62, 64, 73, 77, 84, 103, 127],
+        label: {
+          show: !0,
+          position: `inside`,
+          color: `#fff`,
+          textStyle: {
+            fontFamily: `Hywenhei`,
+            color: `#fff`
+          },
+          formatter: `{b}`
+        }
+      }]
+    };
+    vysledkovalistina.setOption(novadata);
+    delete novadata;
+
+    var novadata = {
+      tooltip: {
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      color: `#e14eca`,
+      grid: {
+        containLabel: !0
+      },
+      xAxis: [{
+        type: `value`,
+        axisLabel: {
+          textStyle: {
+            fontFamily: `Hywenhei`,
+            color: `#fff`
+          }
+        }
+      }],
+      yAxis: [{
+        type: `category`,
+        axisLabel: {
+          show: !1
+        },
+        data: [`73c2d51e-5a02-450e-9e2b-e5dbc577aa35`, `ff014005-93ec-451b-af6c-1e5d63748301`, `fb2dad72-c219-4095-84b0-94c8f75f0d78`, `ac847758-48a7-4f65-8088-7f5dd05554da`, `03acee2e-3331-484e-a327-ff683b2608ad`, `23f90643-f39c-49bc-a716-e85fef8670fd`, `2a2a590a-cdb5-4e02-8198-6fa16c96b8b1`, `1b374f74-2024-43a3-ad22-fd3bd2a100ac`, `108cefaa-a354-4144-957a-a7812aeca218`, `a226b974-beb2-43ff-a59a-0522a5173ee0`, `f5897e5a-7f24-463d-852c-a7bcd5ac8811`, `4775907d-f633-4b20-a723-11ceb8dbdd66`, `87c50c3b-786b-4b19-8b7c-b788611033e8`, `7b5216ff-19a1-41e4-8130-0fd72840d176`, `f1ddaf23-b37c-4e73-9eae-c5b79b2ed8a6`, `fd8f800f-43b5-44a8-b373-2125ddd0e1eb`, `a91837e2-9b2f-4796-b75f-1262758992e8`, `ea9ffeb2-ed44-464b-8de1-12dabb5a828d`, `8625fb7e-62c9-46d9-9889-9dc5df5af7ea`, `cfb03bea-98c8-4a06-a0f7-0491da53caa9`, `3963b0ae-bca7-4853-b5d1-856f766c6316`, `03168f48-ccff-4d20-8c4c-ff9a2fb81405`, `a5a49950-34d3-4533-bc5a-9ae504bc6f50`, `f802f802-3f63-4d27-ac8f-65cd5745549d`, `58ab7298-0a91-4754-8e05-a8c227a0404c`, `4fdf9de2-16e1-4234-9e5b-b7d348d93c25`, `8c0a4d9c-76a4-401c-a18f-d7cfc3ecf5fa`, `c0636720-c611-43bb-b6ca-0937dff9b77f`, `ee929045-d1d8-4030-a21c-f72f4a8c8ead`, `09ce58a7-c341-4618-b77a-79e97412dd1d`, `19207ee2-5761-4800-a434-b668ceaab159`, `b06114e0-8e14-4658-82d1-9edfcd68e729`, `a6287eb9-e48e-41ac-b974-4d6aa8991e26`, `f1880345-1a33-4948-bf28-31d7c9e55755`, `7e3ef0ca-1abd-49ff-a52e-bd9042926a68`, `b3688433-c7aa-4fd8-9ebf-2a7c34923bf2`, `662b35ff-cc74-4640-ba56-0848e3e798fa`, `db9b335e-a890-4fce-8a23-d6d1b12edec4`, `35c1693d-8c09-4c80-96c9-acf015ade18a`, `df0c75c5-fa8c-4d18-9cd1-227d674ab3fb`, `48e234b9-8a7d-4ddf-bb3b-f2afac000ba0`, `cc65cab4-7a3e-4edc-a845-a826bee149f2`, `ff3386c4-de9a-4dfa-97c8-d28eebf12638`, `f0256a7b-fed8-4d49-8013-facc68271f7a`, `8e4c1ed0-8fe6-48e6-a29a-03187672b792`, `8db9ff8d-cc24-4c4d-949e-3fee93221de9`, `a659089c-8747-4dc6-8f69-e44ea100ecab`, `6c85bedc-866a-46bd-9606-2f58e171e4e9`, `b5c9bad4-58a4-4f4b-8f87-e5b912a79033`, `540b03f3-c6b9-4f1f-abbc-1b95bc297b43`, `b4152461-6a45-4540-be74-a85411b2d5bb`, `625237a4-13d2-4039-8b8b-d5203f756ab1`, `ddf79dc6-f234-4701-9235-4bd905cef449`, `b56f6769-bd79-44a5-aa29-e03d94c1fb3c`, `ad4db4f5-833f-4e88-8869-d0b70c49d7cc`, `6b2aaa53-46a3-4f68-a117-3d4cffcda95d`, `7ff84320-5b9a-4c23-a151-8b3048e57752`, `d7b3f7b9-c680-425d-ad9a-0794cb4645d9`, `044a2eb4-3ade-4723-8505-0dd04217bbeb`, `517c78bf-ebb0-4cff-99a7-cd1c0de0f1f8`, `1e9d9c0f-3de0-45f0-a927-548010e46dff`, `31e0c7c2-cebd-4a4f-8c7e-c54aa0fe26d8`, `85d8b348-8df3-49e0-a77d-b25a47e058c1`, `David Marek`, `1af76396-5b7c-4c23-ba30-8b7ad4546ec3`, `8229b143-b507-4620-907b-4d6be8245fcf`, `bf0bc151-975c-424c-b93d-33e4b39dbf0c`, `28631ca4-1ded-498a-9a1d-cbbe0e9e35bf`, `9d8d4f5f-02c4-421f-b56f-8bde92061c24`, `f88a7040-4fbf-43b4-8908-50486a4735e5`, `317b4f2b-eb50-4129-8e63-85792005e3f1`, `Jiří Hlaváček`]
+      }],
+      series: [{
+        name: `Pozitivní Hlasy`,
+        type: `bar`,
+        barWidth: `70%`,
+        data: [1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 6, 7, 8, 8, 8, 10, 11, 11, 12, 13, 14, 15, 16, 16, 17, 17, 18, 18, 18, 19, 20, 21, 21, 21, 21, 23, 24, 24, 25, 26, 28, 29, 36, 39, 40, 43, 47, 115, 118, 124, 125, 152, 153, 154, 157, 158, 161, 161, 162, 167, 233],
+        label: {
+          show: !0,
+          position: `inside`,
+          color: `#fff`,
+          textStyle: {
+            fontFamily: `Hywenhei`,
+            color: `#fff`
+          },
+          formatter: `{b}`
+        }
+      }]
+    };
+
+    pozitivnihlasy.setOption(novadata);
+    delete novadata;
+
+    var novadata = {
+      tooltip: {
+        textStyle: {
+          fontFamily: `Hywenhei`,
+          color: `#000`
+        }
+      },
+      color: `#e14eca`,
+      grid: {
+        containLabel: !0
+      },
+      xAxis: [{
+        type: `value`,
+        axisLabel: {
+          textStyle: {
+            fontFamily: `Hywenhei`,
+            color: `#fff`
+          }
+        }
+      }],
+      yAxis: [{
+        type: `category`,
+        axisLabel: {
+          show: !1
+        },
+        data: [`a7747a8a-581e-443e-b7a3-fc3d5fc5ee1a`, `6f9cc463-6cac-4109-86fc-e66b6526dcd6`, `662b35ff-cc74-4640-ba56-0848e3e798fa`, `317b4f2b-eb50-4129-8e63-85792005e3f1`, `8db9ff8d-cc24-4c4d-949e-3fee93221de9`, `73c2d51e-5a02-450e-9e2b-e5dbc577aa35`, `625237a4-13d2-4039-8b8b-d5203f756ab1`, `a5a49950-34d3-4533-bc5a-9ae504bc6f50`, `ddf79dc6-f234-4701-9235-4bd905cef449`, `dd29f06e-22db-41b1-94ef-509049075cbe`, `ea9ffeb2-ed44-464b-8de1-12dabb5a828d`, `ff014005-93ec-451b-af6c-1e5d63748301`, `85d8b348-8df3-49e0-a77d-b25a47e058c1`, `8c0a4d9c-76a4-401c-a18f-d7cfc3ecf5fa`, `b06114e0-8e14-4658-82d1-9edfcd68e729`, `31e0c7c2-cebd-4a4f-8c7e-c54aa0fe26d8`, `8229b143-b507-4620-907b-4d6be8245fcf`, `418d1ce4-be26-48f8-b4eb-b3d962da96a3`, `fbf41709-6fba-4b3d-995c-8f60d57974e5`, `1e9d9c0f-3de0-45f0-a927-548010e46dff`, `ff3386c4-de9a-4dfa-97c8-d28eebf12638`, `bf0bc151-975c-424c-b93d-33e4b39dbf0c`, `db9b335e-a890-4fce-8a23-d6d1b12edec4`, `40180fbe-312b-4357-97b7-8ec5bd372ecc`, `c0636720-c611-43bb-b6ca-0937dff9b77f`, `6b2aaa53-46a3-4f68-a117-3d4cffcda95d`, `b56f6769-bd79-44a5-aa29-e03d94c1fb3c`, `ad4db4f5-833f-4e88-8869-d0b70c49d7cc`, `7e3ef0ca-1abd-49ff-a52e-bd9042926a68`, `8625fb7e-62c9-46d9-9889-9dc5df5af7ea`, `f802f802-3f63-4d27-ac8f-65cd5745549d`, `fd8f800f-43b5-44a8-b373-2125ddd0e1eb`, `4775907d-f633-4b20-a723-11ceb8dbdd66`, `03acee2e-3331-484e-a327-ff683b2608ad`, `ee929045-d1d8-4030-a21c-f72f4a8c8ead`, `2a2a590a-cdb5-4e02-8198-6fa16c96b8b1`, `f1880345-1a33-4948-bf28-31d7c9e55755`, `b3688433-c7aa-4fd8-9ebf-2a7c34923bf2`, `35c1693d-8c09-4c80-96c9-acf015ade18a`, `d7b3f7b9-c680-425d-ad9a-0794cb4645d9`, `f0256a7b-fed8-4d49-8013-facc68271f7a`, `58ab7298-0a91-4754-8e05-a8c227a0404c`, `a91837e2-9b2f-4796-b75f-1262758992e8`, `1af76396-5b7c-4c23-ba30-8b7ad4546ec3`, `19207ee2-5761-4800-a434-b668ceaab159`, `540b03f3-c6b9-4f1f-abbc-1b95bc297b43`, `cc65cab4-7a3e-4edc-a845-a826bee149f2`, `09ce58a7-c341-4618-b77a-79e97412dd1d`, `00a9439b-cbb5-41de-bcb2-5f296fdd302a`, `28631ca4-1ded-498a-9a1d-cbbe0e9e35bf`, `9d8d4f5f-02c4-421f-b56f-8bde92061c24`, `8e4c1ed0-8fe6-48e6-a29a-03187672b792`, `fb2dad72-c219-4095-84b0-94c8f75f0d78`, `f88a7040-4fbf-43b4-8908-50486a4735e5`, `044a2eb4-3ade-4723-8505-0dd04217bbeb`, `a6287eb9-e48e-41ac-b974-4d6aa8991e26`, `a659089c-8747-4dc6-8f69-e44ea100ecab`, `df0c75c5-fa8c-4d18-9cd1-227d674ab3fb`, `7ff84320-5b9a-4c23-a151-8b3048e57752`, `f1ddaf23-b37c-4e73-9eae-c5b79b2ed8a6`, `57122978-dbdf-4956-ad71-e02d01805698`, `a226b974-beb2-43ff-a59a-0522a5173ee0`, `23f90643-f39c-49bc-a716-e85fef8670fd`, `48e234b9-8a7d-4ddf-bb3b-f2afac000ba0`, `b5c9bad4-58a4-4f4b-8f87-e5b912a79033`, `cfb03bea-98c8-4a06-a0f7-0491da53caa9`, `38f79e3f-3375-47a4-986e-b20281f4d9f2`]
+      }],
+      series: [{
+        name: `Negativní Hlasy`,
+        type: `bar`,
+        barWidth: `70%`,
+        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 5, 6, 7, 8, 8, 8, 9, 9, 10, 10, 10, 10, 10, 11, 11, 11, 11, 12, 14, 16, 18, 18, 19, 20, 21, 23, 24, 32, 37, 41, 44, 47, 52, 52, 56, 62, 95, 109],
+        label: {
+          show: !0,
+          position: `inside`,
+          color: `#fff`,
+          textStyle: {
+            fontFamily: `Hywenhei`,
+            color: `#fff`
+          },
+          formatter: `{b}`
+        }
+      }]
+    };
+    negativníhlasy.setOption(novadata);
+    delete novadata;
+  </script>
+</body>
+
+</html>

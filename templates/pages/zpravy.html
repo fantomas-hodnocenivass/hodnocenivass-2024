@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <title>
+    Hodnocení Učitelů VASS → Zprávy učitelům
+  </title>
+  <!-- FA Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"
+    integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css"
+    integrity="sha512-pZlKGs7nEqF4zoG0egeK167l6yovsuL8ap30d07kA5AJUq+WysFlQ02DLXAmN3n0+H3JVz5ni8SJZnrOaYXWBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS Files -->
+  <link href="/css/styl.css" rel="stylesheet" />
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <!-- HTMX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js"
+    integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setCookieDomain", "*.hodnocenivass.lol"]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "//dataminer.hodnocenivass.lol/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+</head>
+
+<body class="index-page">
+  <!-- Navbar -->
+  <nav class="fixed-top d-flex justify-content-center navbar-transparent " color-on-scroll="100">
+    <div class="collapse navbar-collapse justify-content-center" id="navigation">
+    </div>
+    <ul class="navigace">
+      <li class="nav-item p-0">
+        <a href="/">
+          <button class="btn btn-round"><i class="fa-solid fa-compass"></i> Úvod</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/vysledky">
+          <button class="btn btn-round"><i class="fa-solid fa-file-lines"></i> Výsledky</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/informace">
+          <button class="btn btn-round"><i class="fa-solid fa-user"></i> Informace</button>
+        </a>
+      </li>
+      <li class="nav-item p-0">
+        <a href="/zpravy">
+          <button class="btn btn-round"><i class="fa-solid fa-message"></i> Zprávy</button>
+        </a>
+      </li>
+    </ul>
+    </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header header-filter">
+      <div class="squares square1"></div>
+      <div class="squares square2"></div>
+      <div class="squares square3"></div>
+      <div class="squares square4"></div>
+      <div class="squares square5"></div>
+      <div class="squares square6"></div>
+      <div class="squares square7"></div>
+      <div class="container">
+        <div class="content-center">
+          <div class="navoddelovac"></div>
+          <h3>Veřejné Zprávy Učitelům</h3>
+          <br>
+          <div style="max-height:75vh;overflow-y:scroll;background-color:transparent;" class="platno">
+            <table hx-trigger="load" hx-get="/zpravy/hx" hx-swap="innerHTML">
+              <tr>
+                <td><i class="fas fa-cog fa-spin fa-5x"></i></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>
